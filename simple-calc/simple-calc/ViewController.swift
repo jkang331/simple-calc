@@ -58,6 +58,9 @@ class ViewController: UIViewController {
     
     @IBAction func factPressed(sender: UIButton) {
         factOp = true
+        if num1String == "" {
+            num1String = getTextLabelText()
+        }
         textLabel.text = "\(getTextLabelText()) fact "
     }
     
@@ -148,10 +151,12 @@ class ViewController: UIViewController {
     
     private func computeInput() {
         let input = getTextLabelText()
+        
         if basicMathOperation {
             let num1 = num1String
             let num2 = String(input.substringFromIndex(input.characters.indexOf(Character(opString))!.successor()))
             simple (num1, num2String: num2)
+            
         } else if countOp {
             var countNums = input.componentsSeparatedByString(" count ")
             while countNums.contains(""){
@@ -159,6 +164,7 @@ class ViewController: UIViewController {
                 countNums.removeAtIndex(index!)
             }
             Solution.text = "\(countNums.count)"
+            
         } else if avgOp {
             var avgNums = input.componentsSeparatedByString(" avg ")
             while avgNums.contains(""){
@@ -171,8 +177,23 @@ class ViewController: UIViewController {
             }
             total = total / Double(avgNums.count)
             Solution.text = "\(total)"
-        } else if factOp {
             
+        } else if factOp {
+            if (input.componentsSeparatedByString("fact").count > 2) {
+                Solution.text = "invalid input"
+                return
+            }
+            
+            var product = 1
+            let firstInput = Int(num1String)
+            if (firstInput == nil || firstInput! <= 0) {
+                Solution.text = "invalid input"
+                return
+            }
+            for index in 1...firstInput! {
+                product = product * index
+            }
+            Solution.text = "\(product)"
         }
     }
     
@@ -204,69 +225,6 @@ class ViewController: UIViewController {
             Solution.text = "\(total)"
         }
     }
-    
-    
-    
-    // Multi-operand Operations
-    // - handles negative values (only for count and avg)
-    // - handles doubles (only for count and avg)
-    private func multi() {
-        print("Enter multi-operand operations: count, avg, fact" )
-        let input = readLine(stripNewline: true)
-        let components = input?.componentsSeparatedByString(" ")
-        let numComponents = Int((components?.count)! - 1)
-        
-        switch components![numComponents] {
-        case "count":
-            print("Number of input: \(numComponents)")
-        case "avg":
-            var total: Double = 0.0
-            for index in 0...(numComponents - 1) {
-                total = total + Double(components![index])!
-            }
-            total = total / Double(numComponents)
-            print("Average of the input: \(total)")
-        case "fact":
-            if (numComponents != 1) {
-                print("Sorry there should only be one input. Please try again.")
-                return
-            }
-            var product = 1
-            let firstInput = Int(components![0])
-            if (firstInput == nil || firstInput! <= 0) {
-                print("Sorry the value inputed was invalid please try again.")
-                return
-            }
-            for index in 1...firstInput! {
-                product = product * index
-            }
-            print("Factorial of \(firstInput!): \(product)")
-        default:
-            print("Not able to recognize input. Please try again.")
-        }
-        
-    }
-    
-//    // Start of the main function
-//    print("This is SimpleCalc.")
-//    var menu: String = "\nMenu: \n\tTo compute a simple expression, input \"simple.\" \n\tTo compute a multi-operand, input \"multi.\" \n\tTo exit, input \"exit.\""
-//    
-//    print(menu)
-//    var nextOperation = readLine(stripNewline: true)!
-//    
-//    while (nextOperation != "exit"){
-//    switch nextOperation {
-//    case "simple":
-//    simple()
-//    case "multi":
-//    multi()
-//    default:
-//    print("Sorry incorrect command.  Please try again.")
-//    }
-//    
-//    print(menu)
-//    nextOperation = readLine(stripNewline: true)!
-//    }
     
     
     override func viewDidLoad() {
