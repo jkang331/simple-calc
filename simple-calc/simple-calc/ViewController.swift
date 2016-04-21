@@ -170,6 +170,10 @@ class ViewController: UIViewController {
     private func computeInput() {
         let input = getTextLabelText()
         
+        // Verify there's only one operator
+        //  - would have put some kinda checked to make sure there's only one operation in the input
+        //    or maybe just disable the operator buttons when one has been selected
+        
         if basicMathOperation {
             let num1 = num1String
             let num2 = String(input.substringFromIndex(input.characters.indexOf(Character(opString))!.successor()))
@@ -217,7 +221,6 @@ class ViewController: UIViewController {
     
     // Basic Mathematic Operations
     private func simple(num1String : String, num2String : String){
-        
         let num1 = Int.init(num1String)!
         let num2 = Int.init(num2String)!
         
