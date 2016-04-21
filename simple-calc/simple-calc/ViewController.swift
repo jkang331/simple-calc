@@ -12,31 +12,44 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var Solution: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     
     //Sorry not the best implementation but due to time constraints this is what I came up with
+    var num1String : String = ""
+    var opString : String = ""
     var basicMathOperation = false
     var countOp = false
     var avgOp = false
     var factOp = false
-    var num1String : String = ""
-    var opString : String = ""
+    var alreadyComputed = false
 
+    
     
     //when AC is pressed
     @IBAction func clearTextLabel(sender: UIButton) {
         textLabel.text = ""
         Solution.text = ""
+        errorLabel.text = ""
+        
         num1String = ""
         opString = ""
+        
         basicMathOperation = false
         countOp = false
         avgOp = false
         factOp = false
+        alreadyComputed = false
+        
     }
     
     //when = is pressed
     @IBAction func EvaluateInput(sender: UIButton) {
-        computeInput()
+        if !alreadyComputed {
+            alreadyComputed = true
+            computeInput()
+        } else {
+            errorLabel.text = "Sorry only 1 equation at a time. \n Please clear and try again."
+        }
     }
     
     private func getTextLabelText() -> String {
@@ -69,6 +82,7 @@ class ViewController: UIViewController {
     @IBAction func modPressed(sender: UIButton) {
         num1String = getTextLabelText()
         opString = "%"
+        
         textLabel.text = "\(getTextLabelText())%"
         basicMathOperation = true
     }
@@ -76,6 +90,7 @@ class ViewController: UIViewController {
     @IBAction func dividePressed(sender: UIButton) {
         num1String = getTextLabelText()
         opString = "/"
+        
         textLabel.text = "\(getTextLabelText())/"
         basicMathOperation = true
     }
@@ -83,6 +98,7 @@ class ViewController: UIViewController {
     @IBAction func multiplyPressed(sender: UIButton) {
         num1String = getTextLabelText()
         opString = "x"
+        
         textLabel.text = "\(getTextLabelText())x"
         basicMathOperation = true
     }
@@ -90,6 +106,7 @@ class ViewController: UIViewController {
     @IBAction func subtractPressed(sender: UIButton) {
         num1String = getTextLabelText()
         opString = "-"
+        
         textLabel.text = "\(getTextLabelText())-"
         basicMathOperation = true
     }
@@ -97,6 +114,7 @@ class ViewController: UIViewController {
     @IBAction func addPressed(sender: UIButton) {
         num1String = getTextLabelText()
         opString = "+"
+        
         textLabel.text = "\(getTextLabelText())+"
         basicMathOperation = true
     }
@@ -199,6 +217,7 @@ class ViewController: UIViewController {
     
     // Basic Mathematic Operations
     private func simple(num1String : String, num2String : String){
+        
         let num1 = Int.init(num1String)!
         let num2 = Int.init(num2String)!
         
