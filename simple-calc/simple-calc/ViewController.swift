@@ -12,7 +12,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var Solution: UILabel!
+    
+    //Sorry not the best implementation but due to time constraints this is what I came up with
     var basicMathOperation = false
+    var countOp = false
+    var avgOp = false
+    var factOp = false
     var num1String : String = ""
     var opString : String = ""
 
@@ -21,17 +26,39 @@ class ViewController: UIViewController {
     @IBAction func clearTextLabel(sender: UIButton) {
         textLabel.text = ""
         Solution.text = ""
+        num1String = ""
+        opString = ""
         basicMathOperation = false
+        countOp = false
+        avgOp = false
+        factOp = false
     }
     
     //when = is pressed
     @IBAction func EvaluateInput(sender: UIButton) {
-        parseInput()
+        computeInput()
     }
     
     private func getTextLabelText() -> String {
         let text = textLabel!.text!
         return text
+    }
+    
+    /************ Multi-Operand Buttons Pressed ************/
+    
+    @IBAction func countPressed(sender: UIButton) {
+        countOp = true
+        textLabel.text = "\(getTextLabelText()) count "
+    }
+    
+    @IBAction func avgPressed(sender: UIButton) {
+        avgOp = true
+        textLabel.text = "\(getTextLabelText()) avg "
+    }
+    
+    @IBAction func factPressed(sender: UIButton) {
+        factOp = true
+        textLabel.text = "\(getTextLabelText()) fact "
     }
     
     /************ Operator Buttons Pressed ************/
@@ -119,12 +146,33 @@ class ViewController: UIViewController {
 
     /************ Calculation Methods ************/
     
-    private func parseInput() {
+    private func computeInput() {
         let input = getTextLabelText()
         if basicMathOperation {
             let num1 = num1String
             let num2 = String(input.substringFromIndex(input.characters.indexOf(Character(opString))!.successor()))
             simple (num1, num2String: num2)
+        } else if countOp {
+            var countNums = input.componentsSeparatedByString(" count ")
+            while countNums.contains(""){
+                let index = countNums.indexOf("")
+                countNums.removeAtIndex(index!)
+            }
+            Solution.text = "\(countNums.count)"
+        } else if avgOp {
+            var avgNums = input.componentsSeparatedByString(" avg ")
+            while avgNums.contains(""){
+                let index = avgNums.indexOf("")
+                avgNums.removeAtIndex(index!)
+            }
+            var total: Double = 0.0
+            for index in 0...(avgNums.count - 1) {
+                total = total + Double(avgNums[index])!
+            }
+            total = total / Double(avgNums.count)
+            Solution.text = "\(total)"
+        } else if factOp {
+            
         }
     }
     
