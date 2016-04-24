@@ -131,7 +131,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="multiplyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mmW-3r-8ZD"/>
+                                    <action selector="basicMathOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Os3-m0-wNZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GT9-3L-pee">
@@ -151,7 +151,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="dividePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qb1-4s-PR3"/>
+                                    <action selector="basicMathOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="poA-fC-s4o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8A-d0-mfW">
@@ -161,7 +161,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="subtractPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oz9-wL-Nwf"/>
+                                    <action selector="basicMathOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hrk-he-DKg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5J7-E5-79K">
@@ -171,7 +171,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="970-w6-eiS"/>
+                                    <action selector="basicMathOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5h9-el-hEf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glA-bY-8bz">
@@ -181,7 +181,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="modPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kzg-Nf-O0A"/>
+                                    <action selector="basicMathOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c26-js-qcr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57Y-uN-T6C">

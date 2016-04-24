@@ -79,43 +79,11 @@ class ViewController: UIViewController {
     
     /************ Operator Buttons Pressed ************/
     
-    @IBAction func modPressed(sender: UIButton) {
+    @IBAction func basicMathOperation(sender: UIButton) {
         num1String = getTextLabelText()
-        opString = "%"
+        opString = sender.currentTitle!
         
-        textLabel.text = "\(getTextLabelText())%"
-        basicMathOperation = true
-    }
-    
-    @IBAction func dividePressed(sender: UIButton) {
-        num1String = getTextLabelText()
-        opString = "/"
-        
-        textLabel.text = "\(getTextLabelText())/"
-        basicMathOperation = true
-    }
-    
-    @IBAction func multiplyPressed(sender: UIButton) {
-        num1String = getTextLabelText()
-        opString = "x"
-        
-        textLabel.text = "\(getTextLabelText())x"
-        basicMathOperation = true
-    }
-    
-    @IBAction func subtractPressed(sender: UIButton) {
-        num1String = getTextLabelText()
-        opString = "-"
-        
-        textLabel.text = "\(getTextLabelText())-"
-        basicMathOperation = true
-    }
-    
-    @IBAction func addPressed(sender: UIButton) {
-        num1String = getTextLabelText()
-        opString = "+"
-        
-        textLabel.text = "\(getTextLabelText())+"
+        textLabel.text = "\(num1String)\(opString)"
         basicMathOperation = true
     }
     
@@ -124,7 +92,6 @@ class ViewController: UIViewController {
     /************ Number Buttons Pressed ************/
     
     @IBAction func numberButtonPressed(sender: UIButton) {
-        NSLog("\(sender.currentTitle!)")
         textLabel.text = "\(getTextLabelText())\(sender.currentTitle!)"
     }
     
