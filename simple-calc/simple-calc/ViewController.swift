@@ -123,46 +123,10 @@ class ViewController: UIViewController {
     
     /************ Number Buttons Pressed ************/
     
-    @IBAction func onePressed(sender: UIButton) {
-        textLabel.text = "\(getTextLabelText())1"
+    @IBAction func numberButtonPressed(sender: UIButton) {
+        NSLog("\(sender.currentTitle!)")
+        textLabel.text = "\(getTextLabelText())\(sender.currentTitle!)"
     }
-    
-    @IBAction func twoPressed(sender: UIButton) {
-        textLabel.text = "\(getTextLabelText())2"
-    }
-    
-    @IBAction func threePressed(sender: UIButton) {
-        textLabel.text = "\(getTextLabelText())3"
-    }
-    
-    @IBAction func fourPressed(sender: UIButton) {
-        textLabel.text = "\(getTextLabelText())4"
-    }
-    
-    @IBAction func fivePressed(sender: UIButton) {
-        textLabel.text = "\(getTextLabelText())5"
-    }
-    
-    @IBAction func sixPressed(sender: UIButton) {
-        textLabel.text = "\(getTextLabelText())6"
-    }
-    
-    @IBAction func sevenPressed(sender: UIButton) {
-        textLabel.text = "\(getTextLabelText())7"
-    }
-    
-    @IBAction func eightPressed(sender: UIButton) {
-        textLabel.text = "\(getTextLabelText())8"
-    }
-    
-    @IBAction func ninePressed(sender: UIButton) {
-        textLabel.text = "\(getTextLabelText())9"
-    }
-    
-    @IBAction func zeroPressed(sender: UIButton) {
-        textLabel.text = "\(getTextLabelText())0"
-    }
-    
     
 
     /************ Calculation Methods ************/
