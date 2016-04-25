@@ -80,11 +80,13 @@ class ViewController: UIViewController {
     /************ Operator Buttons Pressed ************/
     
     @IBAction func basicMathOperation(sender: UIButton) {
-        num1String = getTextLabelText()
-        opString = sender.currentTitle!
+        if (basicMathOperation == false && num1String == "") {
+            num1String = getTextLabelText()
+            opString = sender.currentTitle!
         
-        textLabel.text = "\(num1String)\(opString)"
-        basicMathOperation = true
+            textLabel.text = "\(num1String)\(opString)"
+            basicMathOperation = true
+        }
     }
     
     
