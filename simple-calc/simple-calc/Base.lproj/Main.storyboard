@@ -425,7 +425,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4Le-e9-sPc" kind="modal" id="ela-BR-rro"/>
+                                    <segue destination="4Le-e9-sPc" kind="show" id="dcv-Ks-l26"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mp-mh-DSa">
@@ -621,10 +621,10 @@
             </objects>
             <point key="canvasLocation" x="243" y="339"/>
         </scene>
-        <!--View Controller-->
+        <!--History View Controller-->
         <scene sceneID="rQM-Ov-6bt">
             <objects>
-                <viewController id="4Le-e9-sPc" sceneMemberID="viewController">
+                <viewController id="4Le-e9-sPc" customClass="HistoryViewController" customModule="simple_calc" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4TP-Ei-DEl"/>
                         <viewControllerLayoutGuide type="bottom" id="ZBD-TW-HdJ"/>
@@ -633,6 +633,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LC6-Xe-BDm">
+                                <rect key="frame" x="20" y="86" width="560" height="428"/>
+                            </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNn-WE-cVT">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -655,15 +658,29 @@
                             <constraint firstItem="LNn-WE-cVT" firstAttribute="width" secondItem="1Wx-YV-qft" secondAttribute="width" id="1Yb-v4-cb7"/>
                             <constraint firstItem="LNn-WE-cVT" firstAttribute="top" secondItem="4TP-Ei-DEl" secondAttribute="bottom" constant="8" id="5oI-Cn-oCs"/>
                             <constraint firstItem="LNn-WE-cVT" firstAttribute="centerX" secondItem="1Wx-YV-qft" secondAttribute="centerX" id="8sh-du-Wq6"/>
+                            <constraint firstItem="LC6-Xe-BDm" firstAttribute="top" secondItem="4TP-Ei-DEl" secondAttribute="bottom" constant="66" id="Got-HJ-4G5"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="LC6-Xe-BDm" secondAttribute="leading" id="WLm-h5-iLY"/>
+                            <constraint firstItem="ZBD-TW-HdJ" firstAttribute="top" secondItem="LC6-Xe-BDm" secondAttribute="bottom" constant="17" id="eyu-f5-6ma"/>
+                            <constraint firstItem="LC6-Xe-BDm" firstAttribute="centerX" secondItem="1Wx-YV-qft" secondAttribute="centerX" id="feh-A1-hdZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LC6-Xe-BDm" secondAttribute="trailing" id="r1m-A5-q4g"/>
+                            <constraint firstItem="LC6-Xe-BDm" firstAttribute="centerY" secondItem="1Wx-YV-qft" secondAttribute="centerY" id="uGG-fz-eQm"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="eyu-f5-6ma"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Igz-LU-kbS"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="List" destination="LC6-Xe-BDm" id="lPr-c3-VjA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEL-Bi-hcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="339"/>
+            <point key="canvasLocation" x="970" y="339"/>
         </scene>
     </scenes>
 </document>

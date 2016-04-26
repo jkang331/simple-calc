@@ -23,7 +23,14 @@ class ViewController: UIViewController {
     var factOp = false
     var alreadyComputed = false
 
+    var historyString = [String]()
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        NSLog("preparing to leave this view controller")
+        let svc = segue.destinationViewController as! HistoryViewController
+        svc.historyString = historyString
+        
+    }
     
     //when AC is pressed
     @IBAction func clearTextLabel(sender: UIButton) {
@@ -150,6 +157,9 @@ class ViewController: UIViewController {
             }
             Solution.text = "\(product)"
         }
+
+        historyString.append("\(getTextLabelText()) = \(Solution.text!)")
+        
     }
     
     // Basic Mathematic Operations
