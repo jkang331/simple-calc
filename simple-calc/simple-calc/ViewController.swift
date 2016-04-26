@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     var historyString = [String]()
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        NSLog("preparing to leave this view controller")
+        NSLog("heading to history view")
         let svc = segue.destinationViewController as! HistoryViewController
         svc.historyString = historyString
         

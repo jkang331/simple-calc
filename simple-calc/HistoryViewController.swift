@@ -34,6 +34,12 @@ class HistoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        NSLog("heading back to calculator")
+        let svc = segue.destinationViewController as! ViewController
+        svc.historyString = historyString
+        
+    }
     
 }
 
